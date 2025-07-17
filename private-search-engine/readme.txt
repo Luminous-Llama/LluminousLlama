@@ -1,7 +1,8 @@
 How to Use
 ----------
 
-1. Make sure you're on a Unix-based system (Linux, macOS, or WSL).
+1. Make sure you're on a Unix-based system (Linux, macOS, or WSL).(If ur on windows, just download oracle virtual box, and run a kali OS through it)
+Just clone the repo, or even easier, make files with same names and copy paste the content. After ur done with downloading and setting it up, do the following:
 2. Open a terminal and run the following:
    
    chmod +x script.sh
