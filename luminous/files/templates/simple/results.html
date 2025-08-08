@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ q }} - SearXNG Luminous Llama</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/static/css/luminous-llama.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="gradient-bg min-h-screen">
+    <div class="min-h-screen p-4">
+        <div class="max-w-6xl mx-auto">
+            <header class="flex items-center justify-between mb-8 pt-4">
+                <div class="flex items-center">
+                    <a href="/" class="flex items-center mr-8">
+                        <img src="/static/images/llama-logo.svg" alt="Llama" class="w-8 h-8 mr-2">
+                        <h1 class="text-2xl font-bold text-white">Luminous Llama</h1>
+                    </a>
+                                        <form method="get" action="/search" class="flex-1 max-w-xl">
+                        <div class="relative">
+                            <input
+                                type="text"
+                                name="q"
+                                value="{{ q }}"
+                                class="w-full pl-4 pr-12 py-3 bg-white/20 border border-white/30 rounded-xl text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50"
+                            />
+                            <button type="submit" class="absolute inset-y-0 right-0 pr-4 flex items-center">
+                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                </svg>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </header>
+            <div class="glass-morphism rounded-3xl p-8">
+                <div class="mb-6">
+                    <p class="text-white/80">
+                        About {{ results|length }} results for <strong class="text-white">"{{ q }}"</strong>
+                    </p>
+                </div>
+                <div class="space-y-6">
+                    {% for result in results %}
+                    <div class="bg-white/10 rounded-2xl p-6 hover-lift border border-white/20">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-semibold text-white hover:text-yellow-300 transition-colors">
+                                <a href="{{ result.url }}" target="_blank" rel="noopener noreferrer">
+                                    {{ result.title|safe }}
+                                </a>
+                            </h3>
+                            {% if result.engine %}
+                            <span class="text-xs text-white/60 bg-white/10 px-2 py-1 rounded-full">
+                                {{ result.engine }}
+                            </span>
+                            {% endif %}
+                        </div>
+                        <p class="text-green-300 text-sm mb-2">{{ result.url }}</p>
+                        {% if result.content %}
+                        <p class="text-white/80 leading-relaxed">{{ result.content|truncate(200)|safe }}</p>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+                {% if paginate %}
+                <div class="flex justify-center mt-8 space-x-2">
+                    {% for page in paginate %}
+                    <a href="{{ page.url }}"
+                        class="px-4 py-2 rounded-lg {{ 'bg-white text-purple-600' if page.current else 'bg-white/20 text-white hover:bg-white/30' }} transition-colors">
+                        {{ page.number }}
+                    </a>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <script src="/static/js/luminous-llama.js"></script>
+</body>
+</html>

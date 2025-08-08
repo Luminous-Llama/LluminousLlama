@@ -1,0 +1,107 @@
+# SearXNG Configuration for Luminous Llama Theme
+use_default_settings:
+  engines:
+    keep_only:
+      - duckduckgo
+      - startpage
+      - bing
+      - google
+      - yandex
+      - yahoo
+
+general:
+  debug: false
+  instance_name: "Luminous Llama Search"
+  privacypolicy_url: false
+  donation_url: false
+  contact_url: false
+  enable_stats: false
+
+brand:
+  new_issue_url: ""
+  docs_url: ""
+  public_instances: false
+  wiki_url: ""
+  issue_url: ""
+
+search:
+  safe_search: 1
+  autocomplete: "google"
+  default_lang: "en"
+  ban_time_on_fail: 5
+  max_ban_time_on_fail: 120
+  formats:
+    - html
+    - json
+    - rss
+
+server:
+  port: 8080
+  bind_address: "0.0.0.0"
+  secret_key: "change_this_secret_key_to_something_random"
+  base_url: false
+  image_proxy: false
+  http_protocol_version: "1.0"
+  method: "POST"
+
+ui:
+  static_use_hash: false
+  default_locale: "en"
+  query_in_title: false
+  infinite_scroll: false
+  center_alignment: false
+  cache_url: undef
+  default_theme: simple  # This uses the 'simple' theme with your custom templates
+
+outgoing:
+  request_timeout: 3.0
+  max_request_timeout: 15.0
+  useragent_suffix: ""
+  pool_connections: 100
+  pool_maxsize: 15
+  enable_http2: true
+
+engines:
+  - name: duckduckgo
+    engine: duckduckgo
+    shortcut: ddg
+    timeout: 3.0
+    disabled: false
+
+  - name: startpage
+    engine: startpage
+    shortcut: sp
+    timeout: 6.0
+    disabled: false
+
+  - name: bing
+    engine: bing
+    shortcut: bi
+    disabled: false
+
+  - name: google
+    engine: google
+    shortcut: go
+    use_mobile_ui: false
+    disabled: false
+
+categories_as_tabs:
+  general:
+    - duckduckgo
+    - startpage
+    - bing
+    - google
+  images:
+    - duckduckgo images
+    - bing images
+    - google images
+  videos:
+    - duckduckgo videos
+    - bing videos
+    - google videos
+  news:
+    - duckduckgo news
+    - bing news
+    - google news
+
+# NO themes: section needed - SearXNG doesn't have this!

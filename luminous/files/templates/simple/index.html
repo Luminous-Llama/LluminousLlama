@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SearXNG - Luminous Llama</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/static/css/luminous-llama.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="gradient-bg min-h-screen">
+    <div class="min-h-screen p-4">
+        <div class="max-w-4xl mx-auto">
+            <!-- Header -->
+            <header class="text-center mb-12 pt-8">
+                <div class="flex items-center justify-center mb-6">
+                    <img src="/static/images/llama-logo.svg" alt="Llama" class="w-12 h-12 mr-4">
+                    <h1 class="text-5xl font-bold text-white">Luminous Llama</h1>
+                </div>
+                <p class="text-white/80 text-lg font-light">
+                    Privacy-focused search powered by SearXNG
+                </p>
+            </header>
+
+            <!-- Search Form -->
+            <div class="glass-morphism rounded-3xl p-8 mb-8 llama-shadow">
+                <form method="get" action="/search" class="space-y-6">
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                            <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                            </svg>
+                        </div>
+                        <input
+                            type="text"
+                            name="q"
+                            placeholder="Search the web privately..."
+                            class="w-full pl-12 pr-4 py-4 bg-white/20 border border-white/30 rounded-2xl text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50 search-glow transition-all duration-300 text-lg"
+                        />
+                    </div>
+
+                    <!-- Categories -->
+                    <div class="flex flex-wrap gap-3">
+                        <label class="flex items-center space-x-2 px-4 py-2 rounded-full bg-white text-purple-600 shadow-lg cursor-pointer">
+                            <input type="checkbox" name="categories" value="general" checked class="sr-only">
+                            <span>🌐</span>
+                            <span class="font-medium">General</span>
+                        </label>
+                        <label class="flex items-center space-x-2 px-4 py-2 rounded-full bg-white/20 text-white border border-white/30 hover:bg-white/30 cursor-pointer">
+                            <input type="checkbox" name="categories" value="images" class="sr-only">
+                            <span>🖼️</span>
+                            <span class="font-medium">Images</span>
+                        </label>
+                        <label class="flex items-center space-x-2 px-4 py-2 rounded-full bg-white/20 text-white border border-white/30 hover:bg-white/30 cursor-pointer">
+                            <input type="checkbox" name="categories" value="videos" class="sr-only">
+                            <span>🎥</span>
+                            <span class="font-medium">Videos</span>
+                        </label>
+                        <label class="flex items-center space-x-2 px-4 py-2 rounded-full bg-white/20 text-white border border-white/30 hover:bg-white/30 cursor-pointer">
+                            <input type="checkbox" name="categories" value="news" class="sr-only">
+                            <span>📰</span>
+                            <span class="font-medium">News</span>
+                        </label>
+                    </div>
+
+                    <div class="flex justify-end">
+                        <button
+                            type="submit"
+                            class="px-8 py-3 bg-white text-purple-600 rounded-xl font-semibold hover:bg-white/90 transition-colors shadow-lg hover-lift"
+                        >
+                            Search
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Footer -->
+            <footer class="text-center mt-12 pb-8">
+                <div class="text-white/60 text-sm">
+                    <p>Powered by SearXNG • Privacy First • No Tracking</p>
+                    <p class="mt-2">🦙 Made with love by the Luminous Llama team</p>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script src="/static/js/luminous-llama.js"></script>
+</body>
+</html>
