@@ -1,0 +1,12 @@
+version: "3.8"
+
+services:
+  searxng:
+    image: ghcr.io/gurpratap-smagh/luminous-llama:v1
+    container_name: luminous-llama
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./config.yml:/etc/searxng/settings.yml:ro
+    restart: unless-stopped
+
